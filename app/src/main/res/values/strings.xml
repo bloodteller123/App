@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Android Application Project</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_property">Listings</string>
+    <string name="menu_contact">Contact</string>
+    <string name="menu_profile">Profile</string>
+    <string name="dashboard">Welcome</string>
+
+    <!-- Below is for UI #1 -->
+    <string name="rentsapp">Rentsapp</string>
+    <string name="sign_in">Sign in</string>
+    <string name="your_email">YOUR EMAIL</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="dont_have_an_account">Don\'t have an account?</string>
+    <string name="create_an_account">Create an account</string>
+
+    <!-- Below is for UI #2 -->
+    <string name="list_new_property">List new property</string>
+    <string name="property_title">Property title</string>
+    <string name="type">Type</string>
+    <string name="price">Price</string>
+    <string name="address_and_location">Address and location</string>
+    <string name="confirm_passcode">Zip code</string>
+    <string name="description">Description</string>
+    <string name="terms_and_conditions">I agree to the terms and conditions</string>
+    <string name="submit">Submit</string>
+
+
+
+    <string name="add_button">Add Address</string>
+    <string name="address_line">Address Line</string>
+    <string name="city">city</string>
+    <string name="country">country</string>
+    <string name="zip">Zip/Postal Code</string>
+
+    <!-- Below is for UI #3 -->
+    <string name="toolbar_dashboard">Dashboard</string>
+    <string name="view_all_listings">View All Listings in the Market</string>
+    <string name="view_rental_property">View My Rental Property</string>
+</resources>

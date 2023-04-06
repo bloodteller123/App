@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layout_of_activity_temp_second"
+    tools:context=".TempSecondActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/linearlayout_inside_activity_temp_second"
+        android:layout_marginBottom="60dp"
+        android:padding="5dp"
+        android:backgroundTint="#FEFBDE"
+        android:background="@color/black">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/list_new_property"
+            android:textSize="30sp"
+            android:layout_marginTop="40dp"
+            android:textStyle="bold"/>
+        <!-- android:layout_width="wrap_content" -->
+        <!--android:layout_above="@id/linearlayout_of_activity_temp_second_contents" -->
+
+        <LinearLayout
+            android:id="@+id/linearlayout_of_activity_temp_second_contents"
+            android:layout_width="407dp"
+            android:layout_height="532dp"
+            android:layout_below="@id/textView"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical">
+            <!-- android:layout_marginTop="573dp"
+            android:layout_marginBottom="13dp" -->
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/property_title_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="1dp"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="11dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+                <!-- android:layout_height="22dp" -->
+                <!-- app:cardBackgroundColor="#e3b4d0" -->
+
+                <EditText
+                    android:id="@+id/property_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/property_title"
+                    android:inputType="text">
+                    <!-- android:layout_height="28dp" -->
+                    <!-- android:layout_height="116dp" -->
+                    <!-- android:importantForAutofill="no" -->
+                    <!--android:autofillHints="@string/property_title"-->
+
+                </EditText>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/type_and_price_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="11dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_of_type_and_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/type_spinner"
+                        android:layout_width="119dp"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/type">
+
+                    </Spinner>
+
+                    <EditText
+                        android:id="@+id/property_price"
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:hint="@string/price"
+                        android:importantForAutofill="no"
+                        android:inputType="text">
+
+                    </EditText>
+                    <!-- <androidx.cardview.widget.CardView>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView>
+
+                    </androidx.cardview.widget.CardView> -->
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/address_and_location_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="11dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+                <!-- android:layout_width="0dp" -->
+
+                <EditText
+                    android:id="@+id/property_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/address_and_location"
+                    android:importantForAutofill="no"
+                    android:inputType="text">
+
+                </EditText>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/passcode_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="11dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+
+                <EditText
+                    android:id="@+id/property_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/confirm_passcode"
+                    android:importantForAutofill="no"
+                    android:inputType="text">
+
+                </EditText>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/city_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="11dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+
+                <EditText
+                    android:id="@+id/property_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="City"
+                    android:importantForAutofill="no"
+                    android:inputType="text">
+
+                </EditText>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/country_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="11dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+
+                <EditText
+                    android:id="@+id/property_country"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="Country"
+                    android:importantForAutofill="no"
+                    android:inputType="text">
+
+                </EditText>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/description_cardview"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="11dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+
+                <EditText
+                    android:id="@+id/property_des"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:hint="@string/description"
+                    android:importantForAutofill="no"
+                    android:inputType="text">
+
+                </EditText>
+            </androidx.cardview.widget.CardView>
+
+            <!-- TODO -->
+            <CheckBox
+                android:id="@+id/checkbox_for_terms_and_conditions_agreement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terms_and_conditions">
+
+            </CheckBox>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_for_submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_weight="0.4"
+                app:cardCornerRadius="11dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="true">
+
+                <Button
+                    android:id="@+id/submit_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/submit">
+
+                </Button>
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation_menu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_navigation_menu" />
+
+</RelativeLayout>

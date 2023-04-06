@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/rentsapp_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/rentsapp"
+        android:textSize="30sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="15dp"/>
+
+    <TextView
+        android:id="@+id/sign_in_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/sign_in"
+        android:textSize="50sp"
+        android:layout_marginLeft="15dp"
+        android:textStyle="bold"
+        android:layout_below="@+id/rentsapp_textview" />
+
+    <TextView
+        android:id="@+id/your_email_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/your_email"
+        android:textSize="10sp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/sign_in_textview" />
+
+    <EditText
+        android:id="@+id/email_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/your_email_textview"
+        android:layout_marginLeft="15dp"
+        android:importantForAutofill="no"
+        android:hint="@string/email"
+        android:inputType="text"
+        android:minWidth="48dp"
+        android:minHeight="48dp">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/password_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/password"
+        android:textSize="10sp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/email_edittext" />
+
+    <EditText
+        android:id="@+id/password_edittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/password_textview"
+        android:layout_marginLeft="15dp"
+        android:importantForAutofill="no"
+        android:hint="@string/password"
+        android:inputType="text"
+        android:minWidth="48dp"
+        android:minHeight="48dp">
+
+    </EditText>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_for_login"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_below="@+id/password_edittext"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="0.4"
+        app:cardCornerRadius="11dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true">
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/login">
+            <!-- android:layout_height="wrap_content" -->
+
+        </Button>
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textview_for_not_having_an_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/dont_have_an_account"
+        android:textSize="20sp"
+        android:layout_below="@+id/cardview_for_login"
+        android:layout_marginLeft="15dp">
+
+    </TextView>
+
+    <!-- TODO -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_for_creating_an_account"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:layout_below="@+id/textview_for_not_having_an_account"
+        android:layout_marginLeft="15dp"
+        android:layout_weight="0.4"
+        app:cardCornerRadius="11dp"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true">
+
+        <Button
+            android:id="@+id/create_account_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/create_an_account">
+            <!-- android:layout_height="wrap_content" -->
+
+        </Button>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

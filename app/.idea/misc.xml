@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/victo/Documents/Carleton/Winter 2023/COMP 5220U (MT)/Android application project (group of 4)/Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1465" />
+        <entry key="..\:/Users/victo/Documents/Carleton/Winter 2023/COMP 5220U (MT)/Android application project (group of 4)/Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1465" />
+        <entry key="..\:/Users/victo/Documents/Carleton/Winter 2023/COMP 5220U (MT)/Android application project (group of 4)/Project/app/src/main/res/layout/activity_main.xml" value="0.18342391304347827" />
+        <entry key="..\:/Users/victo/Documents/Carleton/Winter 2023/COMP 5220U (MT)/Android application project (group of 4)/Project/app/src/main/res/layout/activity_temp_second.xml" value="0.176" />
+        <entry key="..\:/Users/victo/Documents/Carleton/Winter 2023/COMP 5220U (MT)/Android application project (group of 4)/Project/app/src/main/res/layout/activity_temp_third.xml" value="0.18342391304347827" />
+      </map>
+    </option>
+  </component>
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
