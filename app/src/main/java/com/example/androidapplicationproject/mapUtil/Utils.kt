@@ -20,7 +20,9 @@ class Utils {
             var intent = Intent(AddressActivity.appContext, MapActivity::class.java)
             Log.d("pair", ArrayList(pairs).toString())
             Log.d("pair", ArrayList(pairs)[0].toString())
-            intent.putParcelableArrayListExtra("key", ArrayList(pairs))
+            var list = ArrayList(pairs)
+            Log.d("pair", list.toString())
+            intent.putParcelableArrayListExtra("key", list)
 
             AddressActivity.appContext.startActivity(intent)
 //        finish()

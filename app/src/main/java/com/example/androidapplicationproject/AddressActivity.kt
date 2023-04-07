@@ -59,7 +59,7 @@ class AddressActivity : AppCompatActivity() {
 
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
-        val adapter = PropertyListAdapter(propertyViewModel, false)
+        val adapter = PropertyListAdapter(propertyViewModel, false,recyclerView)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false  )
 
@@ -82,10 +82,11 @@ class AddressActivity : AppCompatActivity() {
 //        }
         val addBtn = findViewById<Button>(R.id.addNewAddress)
         addBtn.setOnClickListener {
-                buildAddAddressDialog()
+            buildAddAddressDialog()
         }
         val viewAllBtn = findViewById<Button>(R.id.viewAllAddress)
         viewAllBtn.setOnClickListener {
+            Log.d("ViewALl", "Click")
             Utils.viewAll(addresses,1)
         }
         val welcome_landlord_btn = findViewById<Button>(R.id.welcome_landlord)

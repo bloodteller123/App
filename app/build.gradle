@@ -95,4 +95,6 @@ dependencies {
     //coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
+    implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
+
 }

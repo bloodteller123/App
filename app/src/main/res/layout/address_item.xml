@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_margin="5dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         app:cardElevation="3dp"
         app:cardCornerRadius="11dp"
         app:cardBackgroundColor="#e3b4d0"
@@ -16,40 +16,65 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="horizontal">
+
                 <TextView
                     android:id="@+id/address_user_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard"
-                    />
+                    android:textSize="23sp" />
+
                 <TextView
                     android:id="@+id/address_user_city_country"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/dashboard"
-                    />
+                    android:textSize="23sp" />
+
+                <ImageButton
+                    android:id="@+id/expand_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="100dp"
+                    android:src="@drawable/arrowdown" />
             </LinearLayout>
-            <Button
-                android:id="@+id/modify_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginLeft="50dp"
-                android:text="Modify"/>
-            <Button
-                android:id="@+id/view_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="VIew"/>
-            <Button
-                android:id="@+id/share_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Share"/>
+            <net.cachapa.expandablelayout.ExpandableLayout
+                android:id="@+id/expandable_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:el_duration="1000"
+                app:el_parallax="1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/modify_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="50dp"
+                        android:text="Modify"/>
+                    <Button
+                        android:id="@+id/view_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="VIew"/>
+                    <Button
+                        android:id="@+id/share_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Share"/>
+                </LinearLayout>
+            </net.cachapa.expandablelayout.ExpandableLayout>
+
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

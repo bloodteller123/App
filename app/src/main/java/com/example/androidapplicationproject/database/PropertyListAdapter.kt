@@ -5,17 +5,24 @@ import android.os.Build
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
-import androidx.recyclerview.widget.ListAdapter
 import android.view.ViewGroup
+import android.view.animation.OvershootInterpolator
+import android.widget.ImageButton
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidapplicationproject.databinding.AddressItemBinding
 import com.example.androidapplicationproject.mapUtil.Utils
 import com.google.android.gms.maps.model.LatLng
+import net.cachapa.expandablelayout.ExpandableLayout
 
-class PropertyListAdapter(val propertyViewModel: PropertyViewModel, val isTenant:Boolean) : ListAdapter<PropertyTable, PropertyListAdapter.PropertyViewHolder>(DiffCallback)  {
 
+class PropertyListAdapter(val propertyViewModel: PropertyViewModel, val isTenant:Boolean, val recyclerView:RecyclerView)
+    : ListAdapter<PropertyTable, PropertyListAdapter.PropertyViewHolder>(DiffCallback){
+
+    private val UNSELECTED = -1
+    private var selectedItem = UNSELECTED
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PropertyViewHolder {
         return PropertyViewHolder(
@@ -36,13 +43,20 @@ class PropertyListAdapter(val propertyViewModel: PropertyViewModel, val isTenant
         holder.bind(current)
     }
 
-    inner class PropertyViewHolder(private var binding: AddressItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class PropertyViewHolder(private var binding: AddressItemBinding) : RecyclerView.ViewHolder(binding.root),
+        View.OnClickListener, ExpandableLayout.OnExpansionUpdateListener {
 
+        //        lateinit var button: ImageButton
         @RequiresApi(Build.VERSION_CODES.N)
         @SuppressLint("SetTextI18n")
         fun bind(property: PropertyTable) {
+//            button = binding.expandBtn
+            binding.expandableLayout.setInterpolator(OvershootInterpolator())
+            binding.expandableLayout.setOnExpansionUpdateListener(this)
+            binding.expandBtn.setOnClickListener(this)
             binding.addressUserDesc.text = property.address
             binding.addressUserCityCountry.text = property.city+" "+property.country
+
             if(isTenant){
                 binding.modifyBtn.visibility = View.GONE
             }else{
@@ -57,6 +71,27 @@ class PropertyListAdapter(val propertyViewModel: PropertyViewModel, val isTenant
             binding.shareBtn.setOnClickListener {
                 Log.d("Bind", "share")
                 Utils.shareLocation(property.city, property.latitude, property.longitude)
+            }
+        }
+        override fun onClick(view: View?) {
+//            val holder = recyclerView.findViewHolderForAdapterPosition(selectedItem)
+            binding.expandBtn.isSelected = false
+            binding.expandableLayout.collapse()
+
+            val position = adapterPosition
+            if (position == selectedItem) {
+                selectedItem = UNSELECTED
+            } else {
+                binding.expandBtn.isSelected = true
+                binding.expandableLayout.expand()
+                selectedItem = position
+            }
+        }
+
+        override fun onExpansionUpdate(expansionFraction: Float, state: Int) {
+            Log.d("ExpandableLayout", "State: $state" );
+            if (state == ExpandableLayout.State.EXPANDING) {
+                recyclerView.smoothScrollToPosition(adapterPosition);
             }
         }
     }
