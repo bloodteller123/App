@@ -1,37 +1,38 @@
-package com.example.androidapplicationproject.mapUtil
+package com.example.androidapplicationproject.Util
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.NavUtils
 import com.example.androidapplicationproject.R
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 
+
 // Implement OnMapReadyCallback.
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {
-    var lat: Double = 0.0
-    var long: Double = 0.0
+    var isTenant = false
     lateinit var latLngList: ArrayList<LatLng>
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map)
-//        val extras = intent.extras
-//
-//        if (extras != null) {
-////            lat = extras.getDouble("lat")
-////            long = extras.getDouble("long")
-////            Log.e("latMap", lat.toString())
-//            Log.d("MAP", "MAP")
-//
-//            latLngList = extras.getParcelableArray("LatLng", LatLng::class.java)!!
-//            Log.e("longMap", latLngList[0].toString())
-//        }
-        latLngList = intent.getParcelableArrayListExtra("key", LatLng::class.java)!!
+
+        val actionbar = supportActionBar
+        actionbar?.setDisplayHomeAsUpEnabled(true)
+        actionbar?.setHomeButtonEnabled(true)
+
+        //https://issuetracker.google.com/issues/240585930#comment6
+        latLngList = intent.getParcelableArrayListExtra("key")!!
+        isTenant = intent.getBooleanExtra("isTenant",false)
         Log.d("longMap", latLngList[0].toString())
         // Get a handle to the fragment and register the callback.
         val mapFragment = supportFragmentManager
@@ -51,7 +52,23 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 MarkerOptions()
                     .position(latLngList[ind])
 //                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.home_marker))
-                    .title("Some locations"))
+                    .title("Property"))
         }
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                Log.d("Click", "Back")
+                val intent = Intent()
+                intent.putExtra("isTenant", isTenant)
+                setResult(Activity.RESULT_OK, intent)
+                onBackPressedDispatcher.onBackPressed()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
 }

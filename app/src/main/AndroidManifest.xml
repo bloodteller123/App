@@ -42,7 +42,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddressActivity"
+            android:name=".Listing"
             android:exported="true" >
             <meta-data
                 android:name="android.app.lib_name"
@@ -56,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TempThirdActivity"
+            android:name=".Dashboard"
             android:exported="false" >
             <meta-data
                 android:name="android.app.lib_name"

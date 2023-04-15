@@ -22,7 +22,7 @@ class Login : AppCompatActivity() {
     private lateinit var loginbtn : Button
     private lateinit var edituser : EditText
     private lateinit var editpword : EditText
-//    private lateinit var dbh : DBHelper
+    //    private lateinit var dbh : DBHelper
     lateinit var scope: CoroutineScope
     private val propertyViewModel: PropertyViewModel by viewModels {
         PropertyViewModelFactory((application as LandlordApplication).repository)
@@ -55,10 +55,11 @@ class Login : AppCompatActivity() {
                         }
                         val editor: SharedPreferences.Editor =  sharedPrefs.edit()
                         editor.putInt("id",users[0].userId)
+                        editor.putString("name", users[0].userName)
                         editor.apply()
                         editor.apply()
 
-                        val intent = Intent(appContext, TempThirdActivity::class.java)
+                        val intent = Intent(appContext, Dashboard::class.java)
                         startActivity(intent)
                     }
                     else{

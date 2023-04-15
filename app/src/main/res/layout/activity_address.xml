@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/layout"
-    tools:context=".AddressActivity">
+    tools:context=".Listing">
 
     <RelativeLayout
         android:id="@+id/rl_address"
@@ -17,13 +17,14 @@
         android:backgroundTint="#FEFBDE"
         android:orientation="vertical"
         android:padding="5dp">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/address_item"
+            android:layout_height="500dp"
             android:layout_above="@+id/ll_addAddress"
-            />
+            android:layout_marginBottom="2dp"
+            tools:listitem="@layout/address_item" />
 
         <RelativeLayout
             android:id="@+id/ll_addAddress"
@@ -33,29 +34,35 @@
             android:layout_marginTop="1dp">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <Button
-                    android:id="@+id/addNewAddress"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/addNewAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add New Address">
 
-                    android:text="Add New Address">
+                    </Button>
+                    <Button
+                        android:id="@+id/viewAllAddress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="View all addresses">
 
-                </Button>
-                <Button
-                    android:id="@+id/viewAllAddress"
+                    </Button>
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/voiceBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="View all addresses">
-
-                </Button>
-
-                <Button
-                    android:id="@+id/welcome_landlord"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Welcome Landlord" />
+                    android:layout_gravity="center"
+                    android:src="@drawable/voice"/>
 
             </LinearLayout>
         </RelativeLayout>

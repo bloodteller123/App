@@ -24,7 +24,6 @@ class Signup : AppCompatActivity() {
     private lateinit var cpword: EditText
     private lateinit var email: EditText
     private lateinit var signupbtn: Button
-    private lateinit var db: DBHelper
     lateinit var scope: CoroutineScope
     private val propertyViewModel: PropertyViewModel by viewModels {
         PropertyViewModelFactory((application as LandlordApplication).repository)

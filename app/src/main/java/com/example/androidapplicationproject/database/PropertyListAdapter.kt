@@ -7,13 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.OvershootInterpolator
-import android.widget.ImageButton
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidapplicationproject.databinding.AddressItemBinding
-import com.example.androidapplicationproject.mapUtil.Utils
+import com.example.androidapplicationproject.Util.Utils
 import com.google.android.gms.maps.model.LatLng
 import net.cachapa.expandablelayout.ExpandableLayout
 
@@ -57,20 +56,20 @@ class PropertyListAdapter(val propertyViewModel: PropertyViewModel, val isTenant
             binding.addressUserDesc.text = property.address
             binding.addressUserCityCountry.text = property.city+" "+property.country
 
-            if(isTenant){
-                binding.modifyBtn.visibility = View.GONE
-            }else{
-                binding.modifyBtn.setOnClickListener {
-                    Log.d("Bind","Modify")
-                }
-            }
             binding.viewBtn.setOnClickListener {
                 Log.d("Bind", "Click")
-                Utils.startMaps(arrayListOf(LatLng(property.latitude, property.longitude)))
+                Utils.startMaps(arrayListOf(LatLng(property.latitude, property.longitude)),isTenant)
             }
             binding.shareBtn.setOnClickListener {
                 Log.d("Bind", "share")
                 Utils.shareLocation(property.city, property.latitude, property.longitude)
+            }
+            if(isTenant){
+                binding.deleteBtn.visibility = View.GONE
+            }else{
+                binding.deleteBtn.setOnClickListener {
+                    Utils.deleteProperty(property.latitude, property.longitude)
+                }
             }
         }
         override fun onClick(view: View?) {
