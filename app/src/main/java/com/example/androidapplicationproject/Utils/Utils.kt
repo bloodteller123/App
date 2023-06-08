@@ -151,12 +151,11 @@ class Utils {
                 }
 
                 Log.d("name", username)
-                buildNotification(address = "$addressLine $city $country", context = Listing.appContext, name = username)
-
+                buildNotification(address = "$addressLine"+" "+ "$city"+" " +"$country", context = Listing.appContext, name = username)
 
                 if(validated) {
                     scope.launch {
-                        val addresString = zip.text.toString().replace(
+                        val addresString = addressLine.text.toString()+", "+ zip.text.toString().replace(
                             " ",
                             ""
                         ) + "," + city.text.toString() + "," + country.text.toString()

@@ -28,7 +28,6 @@
     <string name="submit">Submit</string>
 
 
-
     <string name="add_button">Add Address</string>
     <string name="address_line">Address Line</string>
     <string name="city">city</string>
@@ -39,4 +38,8 @@
     <string name="toolbar_dashboard">Dashboard</string>
     <string name="view_all_listings">View All Listings in the Market</string>
     <string name="view_rental_property">View My Rental Property</string>
+    <string name="channel_name">listing_channel</string>
+    <string name="channel_description">listing</string>
+
+    <string name="google_maps_api_key">AIzaSyCbaZKxT4jqdTLKz3kbkKo4JLrr7V1VR5g</string>
 </resources>

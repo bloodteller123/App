@@ -5,11 +5,11 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "property_table",
-        foreignKeys = [
-            ForeignKey( entity = UserTable::class,
-                parentColumns = ["userId"],
-                childColumns = ["ownerId"])
-        ])
+    foreignKeys = [
+        ForeignKey( entity = UserTable::class,
+            parentColumns = ["userId"],
+            childColumns = ["ownerId"])
+    ])
 data class PropertyTable(
 
     val ownerId: Int,

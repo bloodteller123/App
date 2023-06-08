@@ -7,6 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 class TempSecondActivity : AppCompatActivity() {
         override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
-                setContentView(R.layout.activity_temp_third)
+                setContentView(R.layout.activity_dashboard)
         }
 }

@@ -12,6 +12,8 @@ class Repository(private val dao: LookUpDao) {
 
     fun checkuserpass(userName: String, password:String) = dao.checkuserpass(userName,password)
 
-
+    suspend fun deleteProperty(latitude: Double, longitude: Double) = dao.deleteProperty(latitude, longitude)
+    fun loadAllLandlords() = dao.loadAllLandlords()
+    fun loadusers(userId: Int) = dao.loadusers(userId)
 
 }

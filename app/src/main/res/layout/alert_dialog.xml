@@ -32,7 +32,7 @@
         <LinearLayout
             android:id="@+id/linearlayout_of_activity_temp_second_contents"
             android:layout_width="407dp"
-            android:layout_height="532dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/textView"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -225,20 +225,28 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardview_for_submit_button"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:layout_weight="0.4"
-                app:cardCornerRadius="11dp"
-                app:cardElevation="3dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="1dp"
                 app:cardUseCompatPadding="true">
-
-                <Button
-                    android:id="@+id/submit_button"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/submit">
-
-                </Button>
-
+                    android:orientation="vertical">
+                    <Button
+                        android:id="@+id/submit_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/submit">
+                    </Button>
+                    <Button
+                        android:id="@+id/cancel_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cancel">
+                    </Button>
+                </LinearLayout>
             </androidx.cardview.widget.CardView>
         </LinearLayout>
 

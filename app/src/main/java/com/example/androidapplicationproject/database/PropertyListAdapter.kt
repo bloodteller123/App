@@ -53,9 +53,9 @@ class PropertyListAdapter(val propertyViewModel: PropertyViewModel, val isTenant
             binding.expandableLayout.setInterpolator(OvershootInterpolator())
             binding.expandableLayout.setOnExpansionUpdateListener(this)
             binding.expandBtn.setOnClickListener(this)
-            binding.addressUserDesc.text = property.address
+            binding.addressUserDesc.text = "${property.address}, ${property.postCode}"
             binding.addressUserCityCountry.text = property.city+" "+property.country
-
+            binding.addressUserPrice.text = "$ ${property.price.toString()}"
             binding.viewBtn.setOnClickListener {
                 Log.d("Bind", "Click")
                 Utils.startMaps(arrayListOf(LatLng(property.latitude, property.longitude)),isTenant)

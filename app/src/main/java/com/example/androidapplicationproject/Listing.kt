@@ -21,6 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidapplicationproject.Util.Utils
 import com.example.androidapplicationproject.database.*
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.*
 import okhttp3.*
 import java.util.*
@@ -58,6 +59,7 @@ class Listing : AppCompatActivity() {
 //        propertyViewModel.insertUser(UserTable(1, password = "1234", "Test","asd@123.ca"))
 //        db = AppDatabase.getDatabase(this)
 //        dao = db.landlordDao()
+        Log.d("Listing", "call")
         scope = CoroutineScope(Job() + Dispatchers.IO)
         isTenant = intent.getBooleanExtra("isTenant", false)
 
@@ -76,21 +78,10 @@ class Listing : AppCompatActivity() {
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = llManager
-//        }else{
-//            recyclerView = findViewById<RecyclerView>(R.id.recyclerview_landlord)
-//            val adapter = LandlordListAdapter()
-//            val llManager = LinearLayoutManager(this)
-//            propertyViewModel.loadAllLandlords().observe(this){ landlords ->
-//                landlords.let {
-//                    adapter.submitList(it?.toMutableList())
-//                }
-//            }
-//            recyclerView.adapter = adapter
-//            recyclerView.layoutManager = llManager
-//        }
 
         val addBtn = findViewById<Button>(R.id.addNewAddress)
         if(isTenant) addBtn.visibility = View.GONE
+        else addBtn.visibility = View.VISIBLE
         addBtn.setOnClickListener {
             val username = sharedPrefs.getString("name", "name")
             if (username != null) {
@@ -109,10 +100,32 @@ class Listing : AppCompatActivity() {
 
             openVoiceActivityForResult()
         }
-//        val welcome_landlord_btn = findViewById<Button>(R.id.welcome_landlord)
-//        welcome_landlord_btn.setOnClickListener {
-//            viewWelcomeLandlordPage()
-//        }
+        val menus = findViewById<BottomNavigationView>(R.id.navigation_menu)
+        menus.setOnItemSelectedListener { item->
+            val id = item.itemId
+            when (id) {
+                R.id.action_home -> {
+                    val intent = Intent(this, Dashboard::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.action_property ->{
+                    Log.d("Listing", "Add")
+                    val intt = Intent(this, Listing::class.java)
+                    intt.putExtra("isTenant", false);
+//                    recreate()
+                    startActivity(intt)
+                    finish()
+                    true
+                }
+                R.id.action_profile ->{
+                    val intent = Intent(this, Profile::class.java)
+                    startActivity(intent)
+                    true
+                }
+                else -> super.onOptionsItemSelected(item)
+            }
+        }
     }
 
 
@@ -157,27 +170,9 @@ class Listing : AppCompatActivity() {
 //                }
 //        }
 //    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
-            R.id.action_home -> {
-                val intent = Intent(this, Dashboard::class.java)
-                startActivity(intent)
-                return true
-            }
-            R.id.action_property ->{
-                return true
-            }
-            R.id.action_profile ->{
-                return true
-            }
-            else -> return super.onOptionsItemSelected(item)
-        }
-    }
     companion object{
         lateinit  var appContext: Context
         lateinit var model: PropertyViewModel
         lateinit var inflator: LayoutInflater
     }
-
 }

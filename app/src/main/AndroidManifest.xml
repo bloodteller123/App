@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.androidapplicationproject" >
+    package="com.example.androidapplicationproject">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name=".LandlordApplication"
@@ -17,51 +18,70 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidApplicationProject"
-        tools:targetApi="33" >
-         <activity
-         android:name=".Signup"
-         android:exported="true">
-<!--         <intent-filter>-->
-<!--         <action android:name="android.intent.action.MAIN" />-->
-<!--         <category android:name="android.intent.category.LAUNCHER" />-->
-<!--         </intent-filter>-->
-         </activity>
+        tools:targetApi="33">
         <activity
-            android:name=".Login"
-            android:exported="true">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            android:name=".LandlordList"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
         </activity>
         <activity
-            android:name=".mapUtil.MapActivity"
-            android:exported="false" >
+            android:name=".Signup"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:parentActivityName=".Signup">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".Util.MapActivity"
+            android:exported="false"
+            android:parentActivityName=".Listing">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Listing"
-            android:exported="true" >
+            android:exported="true"
+            android:parentActivityName=".Dashboard">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-<!--            75 Laurier Ave E, Ottawa, ON K1N 6N5-->
-<!--            Wellington St, Ottawa, ON K1A 0A9-->
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!-- 75 Laurier Ave E, Ottawa, ON K1N 6N5 -->
+            <!-- Wellington St, Ottawa, ON K1A 0A9 -->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".Dashboard"
-            android:exported="false" >
+            android:exported="false"
+            android:parentActivityName=".Login">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
-        </activity> <!-- <activity -->
+        </activity>
+        <activity
+            android:name=".Profile"
+            android:exported="true"
+            android:parentActivityName=".Dashboard">
+        </activity><!-- <activity -->
         <!-- android:name=".MainActivity" -->
         <!-- android:exported="true"> -->
         <!-- <intent-filter> -->
@@ -71,7 +91,7 @@
         <!-- </activity> -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="${MAPS_API_KEY}" />
+            android:value="@string/google_maps_api_key" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
